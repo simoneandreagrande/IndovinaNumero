@@ -1,20 +1,35 @@
 package it.polito.tdp.IndovinaNumero.model;
 
-public class Difficolta {
+import it.polito.tdp.IndovinaNumero.model.Difficolta.Livello;
 
-	public enum LivelliDifficolta{
+public class Difficolta {
+	
+	public enum Livello{
 		Facile,
 		Medio,
 		Difficile
 	}
 	
-	private int NMax;
+	
 	private int TMax;
-	private LivelliDifficolta livello;
+	private int NMax;
+	private Livello livello;
 	
-	
-	public Difficolta(LivelliDifficolta d) {
-		switch(d) {
+	public int getTMax() {
+		return TMax;
+	}
+
+	public int getNMax() {
+		return NMax;
+	}
+
+	public Livello getLivello() {
+		return livello;
+	}
+
+	public Difficolta(Livello livello) {
+		this.livello = livello;
+		switch(livello) {
 			case Facile:{
 				this.NMax = 100;
 				this.TMax = 15;
@@ -28,11 +43,14 @@ public class Difficolta {
 			case Difficile:{
 				this.NMax = 100;
 				this.TMax = 4;
+				break;
 			}
-			
 		}
 	}
-	
-	
-	
+
+	@Override
+	public String toString() {
+		return this.livello.toString();
+	}
+
 }
